@@ -1,6 +1,7 @@
 import hashlib
 
-hash_value='eba78765396a7b1aa00a24fd92e1a2a64b1012e5'
+#hash_value='eba78765396a7b1aa00a24fd92e1a2a64b1012e5'
+
 def sha1(filename):
     BUF_SIZE = 65536  # read stuff in 64kb chunks!
     sha1 = hashlib.sha1()
@@ -22,10 +23,16 @@ file_copy_hash = sha1(file_copy)
 
 
 #print ("the hash of the file is \n",file_hash)
+ok = "the origanal and the copy file are the same"
+nok = "the content in the copy file changed"
 
+file_result_test = open('H:/github/File_integrity_Monitoring/result_test.txt', 'w')
 if original_file_hash == file_copy_hash:
-	print("the origanal and the copy file are the same")
+	#print(ok)
+    file_result_test.write(ok + '\n')
 
 else:
-	print("the content in the copy file changed")
+	#print(nok)
+    file_result_test.write(nok + '\n')
 	
+file_result_test.close()
